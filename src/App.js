@@ -2,6 +2,9 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/home';
 import Header from './components/header';
+import Write from './pages/write';
+import Feed from './pages/feed';
+import Mypage from './pages/mypage';
 
 // import { GoogleOAuthProvider } from '@react-oauth/google'
 // const GOOGLE_REST_API_KEY = '599604728211-k4rpa2hff5vv52l7d8hf0cqdjh5bf4fa.apps.googleusercontent.com'
@@ -15,11 +18,10 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route exact path="/login" element={<Login />} /> */}
           {/* <Route path="/edit" element={<Edit />} /> */}
-          {/* <Route path="/mypage" element={<Mypage />} /> */}
-          {/* <Route path="/write" element={<Write />} /> */}
-          {/* <Route path="/feed" element={<Feed/>}/> */}
+          <Route path="/mypage" element={<Mypage />} />
+          <Route path="/write" element={<Write />} />
+          <Route path="/feed" element={<Feed/>}/>
         </Routes>
       {/* </GoogleOAuthProvider> */}
 
