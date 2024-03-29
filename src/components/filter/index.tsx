@@ -9,7 +9,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import { faHeart, faComment, faBookmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import {wholeJobsArray, wholeStacksArray} from '../arrays';
+import {wholeJobsArray, wholeStacksArray} from './arrays';
 
 
 
@@ -22,47 +22,47 @@ const Filter = () => {
     //     navigate(`/feed`, {state: {id: postId}});
     // };
 
-    // const [job, setJob] = useState([]);
-    // const [stack, setStack] = useState([]);
-    // const [order, setOrder] = useState('');
+    const [job, setJob] = useState([]);
+    const [stack, setStack] = useState([]);
+    const [order, setOrder] = useState('');
 
-    // const handleChangeJob = (event) => {
-    //     const {
-    //         target: { value },
-    //     } = event;
-    //     setJob(
-    //         typeof value === 'string' ? value.split(',') : value,
-    //     );
-    //     console.log(job)
-    // };
-
-
+    const handleChangeJob = (event: any) => {
+        const {
+            target: { value },
+        } = event;
+        setJob(
+            typeof value === 'string' ? value.split(',') : value,
+        );
+        console.log(job)
+    };
 
 
-    // const handleChangeStack = (event) => {
-    //     const {
-    //         target: { value },
-    //     } = event;
-    //     setStack(
-    //         typeof value === 'string' ? value.split(',') : value,
-    //     );
-    // };
 
-    // const handleChangeOrder = (event) => {
-    //     const {
-    //         target: { value },
-    //     } = event;
-    //     setOrder(value);
-    // };
 
-    // const [inputword, setInputword] = useState("")
+    const handleChangeStack = (event: any) => {
+        const {
+            target: { value },
+        } = event;
+        setStack(
+            typeof value === 'string' ? value.split(',') : value,
+        );
+    };
 
-    // const onChangeInput = (e) => {
-    //     setInputword(e.target.value)
-    //     console.log('dd', inputword)
-    // }
+    const handleChangeOrder = (event: any) => {
+        const {
+            target: { value },
+        } = event;
+        setOrder(value);
+    };
 
-    // const [data, setData] = useState([]);
+    const [inputword, setInputword] = useState("")
+
+    const onChangeInput = (e: any) => {
+        setInputword(e.target.value)
+        console.log('dd', inputword)
+    }
+
+    const [data, setData] = useState([]);
     // const [searched, setSearched] = useState([]);
 
     // const handleClickBtn = async (selectedSearch) => {
@@ -161,7 +161,7 @@ const Filter = () => {
     //     bringRecentSearches();
     // }, []);
 
-    // const inputBoxRef = useRef(null);
+    const inputBoxRef = useRef(null);
 
     // useEffect(() => {
     //     const handleClickOutside = (event) => {
@@ -191,10 +191,10 @@ const Filter = () => {
             <Container>
                 <div className='search'>
                     <Inputbox
-                        // ref={inputBoxRef}
+                        ref={inputBoxRef}
                         placeholder='검색어를 입력해 주세요.'
                         // onClick={handleInputboxClick}
-                        // onChange={onChangeInput}
+                        onChange={onChangeInput}
                     />
                     <Button className="btn">검색</Button>
 
@@ -215,48 +215,48 @@ const Filter = () => {
                     <Select
                         className="checkbox"
                         // multiple
-                        // value={job}
+                        value={job}
                         displayEmpty
-                        // renderValue={(v) => (v?.length ? v : '직무')}
-                        // onChange={handleChangeJob}
+                        renderValue={(v) => (v?.length ? v : '직무')}
+                        onChange={handleChangeJob}
                         sx={{ fontSize: '13px', paddingTop: '2px' }}
                     // MenuProps={MenuProps}
                     >
                         <MenuItem disabled value="" sx={{ fontSize: '13px', paddingTop: '2px' }}>
                             직무
                         </MenuItem>
-                        {/* {wholeJobsArray.map((item) => (
+                        {wholeJobsArray.map((item) => (
                         <MenuItem sx={{ fontSize: '13px', paddingTop: '2px' }}
                             value={item}>{item}</MenuItem>
-                        ))} */}
+                        ))} 
 
                     </Select>
                     <Select
                         className="checkbox"
                         // multiple
-                        // value={stack}
-                        // onChange={handleChangeStack}
+                        value={stack}
+                        onChange={handleChangeStack}
                         displayEmpty
-                        // renderValue={(v) => (v?.length ? v : '기술스택')}
-                        // inputProps={{ 'aria-label': 'Without label' }}
+                        renderValue={(v) => (v?.length ? v : '기술스택')}
+                        inputProps={{ 'aria-label': 'Without label' }}
                         sx={{ fontSize: '13px', paddingTop: '2px' }}
                     // MenuProps={MenuProps}
                     >
                         <MenuItem disabled value="" sx={{ fontSize: '13px', paddingTop: '2px' }}>
                             기술스택
                         </MenuItem>
-                        {/* {wholeStacksArray.map((item) => (
-                        <MenuItem onClick={() => filter(item)} sx={{ fontSize: '13px', paddingTop: '2px' }}
+                        {wholeStacksArray.map((item) => (
+                        <MenuItem sx={{ fontSize: '13px', paddingTop: '2px' }}
                             value={item}>{item}</MenuItem>
-                        ))} */}
+                        ))}
                     </Select>
                     <Select
                         className="checkbox"
-                        // value={order}
+                        value={order}
                         displayEmpty
-                        // renderValue={(v) => (v?.length ? v : '정렬')}
+                        renderValue={(v) => (v?.length ? v : '정렬')}
                         sx={{ fontSize: '13px', paddingTop: '2px' }}
-                        // onChange={handleChangeOrder}
+                        onChange={handleChangeOrder}
                     // MenuProps={MenuProps}
                     >
                         <MenuItem disabled value="" sx={{ fontSize: '13px', paddingTop: '2px' }}>
